@@ -9,6 +9,7 @@ Skeleton tracking support is also available.
 
 
 
+
 You need to install the sensor drivers, OpenNI and NITE.
 PrimeSense drivers do not run with kinect. 
 To use a kinect get SensorKinect from avin2 or ros.
