@@ -1,0 +1,3 @@
+CONTENTS: This block contains the OpenNI libs for Kinect and an application using the Kinect. 
+
+DESCRIPTION: The application displays a 3D corridor at which a sound source is located. When a person is 'tracked' by the kinect, then the point of view of the camera moves according to the movements of the person. In addition, the volume of the sound source also changes according to the movements of the person.
