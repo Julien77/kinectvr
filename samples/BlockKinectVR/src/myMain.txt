@@ -1,0 +1,125 @@
+/***
+	SkeletonApp
+
+	A sample app showing skeleton rendering with the kinect and openni.
+	This sample renders only the user with id=1. If user has another id he won't be displayed.
+	You may change that in the code.
+
+	V.
+***/
+
+#include "cinder/app/AppBasic.h"
+#include "cinder/imageio.h"
+#include "cinder/gl/gl.h"
+#include "cinder/gl/Texture.h"
+//#include "VOpenNIHeaders.h"
+#include "cinder/Camera.h"
+#include "cinder/params/Params.h"
+
+#include "room.h"
+#include "figure.h"
+
+using namespace ci;
+using namespace ci::app;
+using namespace std;
+
+
+
+
+
+
+
+class ImageSourceKinectColor : public ImageSource 
+{
+public:
+	
+};
+
+
+class ImageSourceKinectDepth : public ImageSource 
+{
+
+};
+
+
+class BlockOpenNISampleAppApp : public AppBasic 
+{
+public:
+	Room mRoom;
+	Figure mFig;
+
+	void prepareSettings( Settings *settings );
+	void setup();
+	void mouseDown( MouseEvent event );	
+	void update();
+	void draw();
+	void keyDown( KeyEvent event );
+
+
+};
+
+void BlockOpenNISampleAppApp::prepareSettings( Settings *settings )
+{
+	settings->setWindowSize( 800, 640 );
+	settings->setFrameRate( 60.0f );
+}
+
+void BlockOpenNISampleAppApp::setup()
+{
+	// CAREFUL the second vertex is "behind" the first!!
+	this->mRoom.setup(Vec3f(0,0,0),Vec3f(100,100,-100));
+	this->mFig.setup();
+
+	
+}
+
+void BlockOpenNISampleAppApp::mouseDown( MouseEvent event )
+{
+}
+
+void BlockOpenNISampleAppApp::update()
+{	
+	// calling it with all zeros let you control the camera otherwise it
+	// should take the given position
+	this->mRoom.update(Vec3f(0,0,0),Vec3f(0,0,0),Vec3f(0,0,0));
+
+	// for fun move our "figure"
+	static float t=0;
+	this->mFig.update(Vec3f(30 + 20 * math<float>::sin(t), 30,-40));
+	t += 0.01;
+	
+}
+
+void BlockOpenNISampleAppApp::draw()
+{
+	// common stuff
+	gl::clear( Color( 0, 0, 0.01f ), true );
+	gl::enableDepthRead();
+	gl::enableDepthWrite();
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+	// drawing the components
+	this->mRoom.draw();
+	this->mFig.draw();
+
+}
+
+
+
+
+void BlockOpenNISampleAppApp::keyDown( KeyEvent event )
+{
+	if( event.getCode() == KeyEvent::KEY_ESCAPE )
+	{
+		this->quit();
+		this->shutdown();
+	}
+}
+
+CINDER_APP_BASIC( BlockOpenNISampleAppApp, RendererGl )
+
+
+
+
+
+
