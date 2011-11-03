@@ -158,23 +158,15 @@ void BlockKinectVRAppApp::prepareSettings( Settings* settings )
 
 void BlockKinectVRAppApp::setup()
 {
-    try 
-    {
 	_manager = V::OpenNIDeviceManager::InstancePtr();
 	_device0 = _manager->createDevice( "data/configIR.xml", true );
-//	if( !_device0 ) 
-//	{
-//		DEBUG_MESSAGE( "(App)  Couldn't init device0\n" );
-//		exit( 0 );
-//	}
+	if( !_device0 ) 
+	{
+		DEBUG_MESSAGE( "(App)  Couldn't init device0\n" );
+		exit( 0 );
+	}
 	_device0->setPrimaryBuffer( V::NODE_TYPE_DEPTH );
 	_manager->start();
-    } 
-    catch (...) 
-    {
-        DEBUG_MESSAGE( "(App)  Did you really connect the Kinect\n" ); 
-    }
-
 
 	gl::Texture::Format format;
 	gl::Texture::Format depthFormat;
@@ -185,15 +177,9 @@ void BlockKinectVRAppApp::setup()
 
 void BlockKinectVRAppApp::update()
 {	
-    try 
-    {
 	// Update textures
 	mColorTex.update( getColorImage() );
 	mDepthTex.update( getDepthImage24() );	// Histogram
-    } 
-    catch (...)
-    {
-    }
     
 	// Uses manager to handle users.
 	if( _manager->hasUsers() && _manager->hasUser(1) ) mOneUserTex.update( getUserColorImage(1) );
@@ -229,7 +215,16 @@ void BlockKinectVRAppApp::draw()
 		// Get list of available bones/joints
 		// Do whatever with it
 		//V::UserBoneList boneList = _manager->getUser(1)->getBoneList();//Doesn't work
-        //V::OpenNIBoneList	getBoneList();
+        
+        // Get the center of mass of the user 1
+        V::OpenNIUserRef user = _manager->getUser(1);
+        float *CoM = new float[3];
+        CoM = user->getCenterOfMass();
+        console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
+        // These are the values just after calibration pose: CoM.x=333.91, CoM.y=232.187, Com.z=873.077
+        // The console says: BlockKinectVR(445,0xa03cb540) malloc: *** error for object 0xe352b8: pointer being freed was not allocated *** set a breakpoint in malloc_error_break to debug
+        // Camera is in front of us: x starts at 0 on the left, y starts at 0 on the floor, z starts at O near the camera
+        delete [] CoM;
 	}
 }
 
