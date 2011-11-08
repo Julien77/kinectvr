@@ -184,10 +184,10 @@ void BlockKinectVRAppApp::setup()
 	mDepthTex = gl::Texture( KINECT_DEPTH_WIDTH, KINECT_DEPTH_HEIGHT, format );
 	mOneUserTex = gl::Texture( KINECT_DEPTH_WIDTH, KINECT_DEPTH_HEIGHT, format );
     
-//    
-//    // CAREFUL the second vertex is "behind" the first!!
-//	this->mRoom.setup(Vec3f(0,0,0),Vec3f(100,100,-100));
-//	this->mFig.setup();
+    
+    // CAREFUL the second vertex is "behind" the first!!
+	this->mRoom.setup(Vec3f(0,0,100),Vec3f(100,100,0));
+	this->mFig.setup();
 
 }
 
@@ -212,9 +212,12 @@ void BlockKinectVRAppApp::update()
         // These are the values just after calibration pose: CoM.x=333.91, CoM.y=232.187, Com.z=873.077
 
         
-//        // calling it with all zeros let you control the camera otherwise it
-//        // should take the given position
-//        this->mRoom.update(Vec3f(CoM[0],CoM[1],CoM[2]),Vec3f(0,40,-1),Vec3f(0,1,0));
+        // calling it with all zeros let you control the camera otherwise it
+        // should take the given position
+        static Vec3f smoothCenter= Vec3f(0, 0, 0);
+        smoothCenter = smoothCenter* 0.8 + Vec3f(CoM[0],CoM[1],CoM[2])* 0.2;
+        
+        this->mRoom.update(smoothCenter,Vec3f(0,40,-1),Vec3f(0,1,0));
 //        
 //        // for fun move our "figure"
 //        static float t=0;
@@ -239,7 +242,7 @@ void BlockKinectVRAppApp::draw()
 	gl::color( cinder::ColorA(1, 1, 1, 1) );
     gl::draw( mDepthTex, Rectf( xoff, yoff, xoff+sx, yoff+sy) );
     gl::draw( mColorTex, Rectf( xoff+sx*1, yoff, xoff+sx*2, yoff+sy) );
-    if( _manager->hasUsers() && _manager->hasUser(1) ) gl::draw( mOneUserTex, Rectf( 640, 0, 1280, 640 )  );//Rectf( 0, 0, 640, 480)
+    //if( _manager->hasUsers() && _manager->hasUser(1) ) gl::draw( mOneUserTex, Rectf( 640, 0, 1280, 640 )  );//Rectf( 0, 0, 640, 480)
 	if( _manager->hasUsers() && _manager->hasUser(1) )
 	{
 		// Render skeleton if available
@@ -263,10 +266,12 @@ void BlockKinectVRAppApp::draw()
 //    gl::enableDepthRead();
 //	gl::enableDepthWrite();
 //	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-//    
-//	// drawing the components
-//	this->mRoom.draw();
+    
+	// drawing the components
+    glViewport( 640, 0, 640, 640 );
+	this->mRoom.draw();
 //	this->mFig.draw();
+    glViewport( 0, 0, 1280, 640 ); 
 }
 
 void BlockKinectVRAppApp::mouseDown( MouseEvent event )
@@ -283,6 +288,54 @@ void BlockKinectVRAppApp::keyDown( KeyEvent event )
     else if( event.getChar() == 'f' || event.getChar() == 'F' )
     {
 		setFullScreen( ! isFullScreen() );
+	}
+    else if( event.getChar() == 't' || event.getChar() == 'T' )
+    {
+        V::OpenNIUserRef user = _manager->getUser(1);
+        float *CoM = new float[3];
+        CoM = user->getCenterOfMass();
+		this->mRoom.minX = CoM[0];
+        delete[] CoM;
+	}
+    else if( event.getChar() == 'y' || event.getChar() == 'Y' )
+    {
+        V::OpenNIUserRef user = _manager->getUser(1);
+        float *CoM = new float[3];
+        CoM = user->getCenterOfMass();
+		this->mRoom.minY = CoM[1];
+        delete[] CoM;
+	}
+    else if( event.getChar() == 'u' || event.getChar() == 'U' )
+    {
+        V::OpenNIUserRef user = _manager->getUser(1);
+        float *CoM = new float[3];
+        CoM = user->getCenterOfMass();
+		this->mRoom.minZ = CoM[2];
+        delete[] CoM;
+	}
+    else if( event.getChar() == 'i' || event.getChar() == 'I' )
+    {
+        V::OpenNIUserRef user = _manager->getUser(1);
+        float *CoM = new float[3];
+        CoM = user->getCenterOfMass();
+		this->mRoom.maxX = CoM[0];
+        delete[] CoM;
+	}
+    else if( event.getChar() == 'o' || event.getChar() == 'O' )
+    {
+        V::OpenNIUserRef user = _manager->getUser(1);
+        float *CoM = new float[3];
+        CoM = user->getCenterOfMass();
+		this->mRoom.maxY = CoM[1];
+        delete[] CoM;
+	}
+    else if( event.getChar() == 'p' || event.getChar() == 'P' )
+    {
+        V::OpenNIUserRef user = _manager->getUser(1);
+        float *CoM = new float[3];
+        CoM = user->getCenterOfMass();
+		this->mRoom.maxZ = CoM[2];
+        delete[] CoM;
 	}
 }
 

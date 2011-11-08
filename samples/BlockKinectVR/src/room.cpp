@@ -8,6 +8,12 @@
 
 Room::Room()
 {
+    minX = 0;
+    maxX = 100;
+    minY = 0;
+    maxY = 100;
+    minZ = 0;
+    maxZ = 100;
 	
 }
 
@@ -163,7 +169,10 @@ void Room::setup(Vec3f cornerOne, Vec3f cornerTwo)
 
 void Room::update(Vec3f eye, Vec3f center, Vec3f up)
 {
-
+    eye.x = (eye.x - minX)/(maxX - minX)*100;
+    eye.y = (eye.y - minY)/(maxY - minY)*100;
+    eye.z = (eye.z - minZ)/(maxZ - minZ)*100;
+    	
 	// TODO check camera prooperies not to be able to "leave the room"
 
 
@@ -177,16 +186,18 @@ void Room::update(Vec3f eye, Vec3f center, Vec3f up)
 	}
 	else
 	{
-		this->mCam.lookAt( eye, center, up );	
+		this->mCam.lookAt( eye, eye + Vec3f(0,0,-10), Vec3f::yAxis() );	
 	}
 
-	gl::setMatrices( this->mCam );
+	//gl::setMatrices( this->mCam );
 	//gl::rotate( mSceneRotation*(-1) );
 }
 
 void Room::draw()
 {
-	
+    glPushMatrix();
+	gl::setMatrices( this->mCam );
+    
 	glEnable( GL_TEXTURE_2D );		//< Enabling texture
 	this->mWallTex.bind();			//< setting the image for the walls
 
@@ -290,4 +301,6 @@ void Room::draw()
 
 	// DRAW PARAMS WINDOW
 	params::InterfaceGl::draw();
+    
+    glPopMatrix();
 }

@@ -23,6 +23,13 @@ public:
 	void setup(Vec3f cornerOne, Vec3f cornerTwo);
 	void update(Vec3f eye ,Vec3f center,Vec3f up);
 	void draw();
+    
+    float minX;
+    float maxX;
+    float minY;
+    float maxY;
+    float minZ;
+    float maxZ;
 
 private:
 
@@ -43,7 +50,7 @@ private:
 	Vec3f mtop2;
 	Vec3f mtop3;
 	Vec3f mtop4;
-	
+    
 	// Textures and resources used. So far determined with urls which should be later changed to local resources
 	Url					mFloorUrl;
 	gl::Texture         mFloorTex;
