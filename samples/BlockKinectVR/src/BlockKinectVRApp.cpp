@@ -15,6 +15,9 @@
 #include "cinder/gl/Texture.h"
 #include "VOpenNIHeaders.h"
 
+#include "room.h"
+#include "figure.h"
+
 using namespace ci;
 using namespace ci::app;
 using namespace std;
@@ -102,6 +105,9 @@ public:
 	static const int KINECT_DEPTH_WIDTH = 640;
 	static const int KINECT_DEPTH_HEIGHT = 480;
 	static const int KINECT_DEPTH_FPS = 30;
+    
+    Room mRoom;
+	Figure mFig;
 
     void prepareSettings(Settings* settings);
 	void setup();
@@ -158,6 +164,7 @@ void BlockKinectVRAppApp::prepareSettings( Settings* settings )
 
 void BlockKinectVRAppApp::setup()
 {
+    //Initialize the Kinect
 	_manager = V::OpenNIDeviceManager::InstancePtr();
 	_device0 = _manager->createDevice( "data/configIR.xml", true );
 	if( !_device0 ) 
@@ -165,30 +172,56 @@ void BlockKinectVRAppApp::setup()
 		DEBUG_MESSAGE( "(App)  Couldn't init device0\n" );
 		exit( 0 );
 	}
+    if( _device0)
+    {
 	_device0->setPrimaryBuffer( V::NODE_TYPE_DEPTH );
 	_manager->start();
+    }
 
 	gl::Texture::Format format;
 	gl::Texture::Format depthFormat;
 	mColorTex = gl::Texture( KINECT_COLOR_WIDTH, KINECT_COLOR_HEIGHT, format );
 	mDepthTex = gl::Texture( KINECT_DEPTH_WIDTH, KINECT_DEPTH_HEIGHT, format );
 	mOneUserTex = gl::Texture( KINECT_DEPTH_WIDTH, KINECT_DEPTH_HEIGHT, format );
+    
+//    
+//    // CAREFUL the second vertex is "behind" the first!!
+//	this->mRoom.setup(Vec3f(0,0,0),Vec3f(100,100,-100));
+//	this->mFig.setup();
+
 }
 
 void BlockKinectVRAppApp::update()
 {	
-	// Update textures
+    // Update textures
+    if( _device0)
+    {
 	mColorTex.update( getColorImage() );
 	mDepthTex.update( getDepthImage24() );	// Histogram
+    }
     
-	// Uses manager to handle users.
-	if( _manager->hasUsers() && _manager->hasUser(1) ) mOneUserTex.update( getUserColorImage(1) );
-    
-    // Get coordinates of users
+    // Get texture and coordinates of user
     if( _manager->hasUsers() && _manager->hasUser(1) ) 
     {
-         
-        //V::OpenNIUser( 1, _device0 );//Doesn't work
+        mOneUserTex.update( getUserColorImage(1) );
+        
+        V::OpenNIUserRef user = _manager->getUser(1);
+        float *CoM = new float[3];
+        CoM = user->getCenterOfMass();
+        console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
+        // These are the values just after calibration pose: CoM.x=333.91, CoM.y=232.187, Com.z=873.077
+
+        
+//        // calling it with all zeros let you control the camera otherwise it
+//        // should take the given position
+//        this->mRoom.update(Vec3f(CoM[0],CoM[1],CoM[2]),Vec3f(0,40,-1),Vec3f(0,1,0));
+//        
+//        // for fun move our "figure"
+//        static float t=0;
+//        this->mFig.update(Vec3f(30 + 20 * math<float>::sin(t), 30,-40));
+//        t += 0.01;
+//        
+        delete [] CoM;
     }
     
 }
@@ -206,7 +239,7 @@ void BlockKinectVRAppApp::draw()
 	gl::color( cinder::ColorA(1, 1, 1, 1) );
     gl::draw( mDepthTex, Rectf( xoff, yoff, xoff+sx, yoff+sy) );
     gl::draw( mColorTex, Rectf( xoff+sx*1, yoff, xoff+sx*2, yoff+sy) );
-    if( _manager->hasUsers() && _manager->hasUser(1) ) gl::draw( mOneUserTex, Rectf( 0, 0, 640, 480) );
+    if( _manager->hasUsers() && _manager->hasUser(1) ) gl::draw( mOneUserTex, Rectf( 640, 0, 1280, 640 )  );//Rectf( 0, 0, 640, 480)
 	if( _manager->hasUsers() && _manager->hasUser(1) )
 	{
 		// Render skeleton if available
@@ -226,6 +259,14 @@ void BlockKinectVRAppApp::draw()
         // Camera is in front of us: x starts at 0 on the left, y starts at 0 on the floor, z starts at O near the camera
         delete [] CoM;
 	}
+    
+//    gl::enableDepthRead();
+//	gl::enableDepthWrite();
+//	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+//    
+//	// drawing the components
+//	this->mRoom.draw();
+//	this->mFig.draw();
 }
 
 void BlockKinectVRAppApp::mouseDown( MouseEvent event )
