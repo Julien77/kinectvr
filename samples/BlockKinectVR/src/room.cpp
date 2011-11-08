@@ -169,9 +169,7 @@ void Room::setup(Vec3f cornerOne, Vec3f cornerTwo)
 
 void Room::update(Vec3f eye, Vec3f center, Vec3f up)
 {
-    eye.x = (eye.x - minX)/(maxX - minX)*100;
-    eye.y = (eye.y - minY)/(maxY - minY)*100;
-    eye.z = (eye.z - minZ)/(maxZ - minZ)*100;
+    
     	
 	// TODO check camera prooperies not to be able to "leave the room"
 
@@ -303,4 +301,11 @@ void Room::draw()
 	params::InterfaceGl::draw();
     
     glPopMatrix();
+}
+
+void Room::convertCoord(Vec3f *vec)
+{
+    vec->x = (vec->x - minX)/(maxX - minX)*100;
+    vec->y = (vec->y - minY)/(maxY - minY)*100;
+    vec->z = (vec->z - minZ)/(maxZ - minZ)*100;
 }

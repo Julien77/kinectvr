@@ -108,6 +108,7 @@ public:
     
     Room mRoom;
 	Figure mFig;
+    bool mPOV;
 
     void prepareSettings(Settings* settings);
 	void setup();
@@ -164,6 +165,7 @@ void BlockKinectVRAppApp::prepareSettings( Settings* settings )
 
 void BlockKinectVRAppApp::setup()
 {
+    mPOV = true;
     //Initialize the Kinect
 	_manager = V::OpenNIDeviceManager::InstancePtr();
 	_device0 = _manager->createDevice( "data/configIR.xml", true );
@@ -217,13 +219,20 @@ void BlockKinectVRAppApp::update()
         static Vec3f smoothCenter= Vec3f(0, 0, 0);
         smoothCenter = smoothCenter* 0.8 + Vec3f(CoM[0],CoM[1],CoM[2])* 0.2;
         
-        this->mRoom.update(smoothCenter,Vec3f(0,40,-1),Vec3f(0,1,0));
-//        
-//        // for fun move our "figure"
-//        static float t=0;
-//        this->mFig.update(Vec3f(30 + 20 * math<float>::sin(t), 30,-40));
-//        t += 0.01;
-//        
+        //convert coordintes to room
+        this->mRoom.convertCoord(&smoothCenter);
+        
+        if (mPOV)
+        {
+            this->mRoom.update(smoothCenter,Vec3f(0,40,-1),Vec3f(0,1,0));
+        }
+        else
+        {
+            this->mRoom.update(Vec3f(50,30,100), Vec3f(50,30,90), Vec3f(0,1,0));
+            
+            this->mFig.update(smoothCenter);
+
+        }
         delete [] CoM;
     }
     
@@ -289,54 +298,30 @@ void BlockKinectVRAppApp::keyDown( KeyEvent event )
     {
 		setFullScreen( ! isFullScreen() );
 	}
-    else if( event.getChar() == 't' || event.getChar() == 'T' )
-    {
-        V::OpenNIUserRef user = _manager->getUser(1);
-        float *CoM = new float[3];
-        CoM = user->getCenterOfMass();
-		this->mRoom.minX = CoM[0];
-        delete[] CoM;
-	}
-    else if( event.getChar() == 'y' || event.getChar() == 'Y' )
-    {
-        V::OpenNIUserRef user = _manager->getUser(1);
-        float *CoM = new float[3];
-        CoM = user->getCenterOfMass();
-		this->mRoom.minY = CoM[1];
-        delete[] CoM;
-	}
-    else if( event.getChar() == 'u' || event.getChar() == 'U' )
-    {
-        V::OpenNIUserRef user = _manager->getUser(1);
-        float *CoM = new float[3];
-        CoM = user->getCenterOfMass();
-		this->mRoom.minZ = CoM[2];
-        delete[] CoM;
-	}
     else if( event.getChar() == 'i' || event.getChar() == 'I' )
     {
         V::OpenNIUserRef user = _manager->getUser(1);
         float *CoM = new float[3];
         CoM = user->getCenterOfMass();
+		this->mRoom.minX = CoM[0];
+        this->mRoom.minY = CoM[1];
+        this->mRoom.minZ = CoM[2];
+        delete[] CoM;
+	}
+        else if( event.getChar() == 'o' || event.getChar() == 'O' )
+    {
+        V::OpenNIUserRef user = _manager->getUser(1);
+        float *CoM = new float[3];
+        CoM = user->getCenterOfMass();
 		this->mRoom.maxX = CoM[0];
+        this->mRoom.maxY = CoM[1];
+        this->mRoom.maxZ = CoM[2];
         delete[] CoM;
 	}
-    else if( event.getChar() == 'o' || event.getChar() == 'O' )
+        else if( event.getChar() == 'p' || event.getChar() == 'P' )
     {
-        V::OpenNIUserRef user = _manager->getUser(1);
-        float *CoM = new float[3];
-        CoM = user->getCenterOfMass();
-		this->mRoom.maxY = CoM[1];
-        delete[] CoM;
-	}
-    else if( event.getChar() == 'p' || event.getChar() == 'P' )
-    {
-        V::OpenNIUserRef user = _manager->getUser(1);
-        float *CoM = new float[3];
-        CoM = user->getCenterOfMass();
-		this->mRoom.maxZ = CoM[2];
-        delete[] CoM;
-	}
+        mPOV = !mPOV;
+    }
 }
 
 CINDER_APP_BASIC( BlockKinectVRAppApp, RendererGl )

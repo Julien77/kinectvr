@@ -23,6 +23,7 @@ public:
 	void setup(Vec3f cornerOne, Vec3f cornerTwo);
 	void update(Vec3f eye ,Vec3f center,Vec3f up);
 	void draw();
+    void convertCoord(Vec3f *vec);
     
     float minX;
     float maxX;
