@@ -1,5 +1,11 @@
-#include "cinder/CinderResources.h"
+#if  defined(_MSC_VER) || defined(_WIN32)
+	//Windows stuff
 
-ID ICON "cinder_app_icon.ico"
+#else
+	// other op.systems
+	#include "cinder/CinderResources.h"
 
-//RES_MY_RESOURCE
+	ID ICON "cinder_app_icon.ico"
+
+	//RES_MY_RESOURCE
+#endif

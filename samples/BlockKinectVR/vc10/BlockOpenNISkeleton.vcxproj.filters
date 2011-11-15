@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\BlockOpenNISkeletonApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\OpenNIRecorder.cpp">
       <Filter>Addons\OpenNI</Filter>
     </ClCompile>
@@ -35,6 +32,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\VOpenNIUser.cpp">
       <Filter>Addons\OpenNI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BlockKinectVRApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\figure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\room.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\include\VOpenNIUser.h">
       <Filter>Addons\OpenNI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\figure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\room.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
