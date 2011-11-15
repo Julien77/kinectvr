@@ -22,7 +22,6 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-
 class ImageSourceKinectColor : public ImageSource 
 {
 public:
@@ -172,7 +171,7 @@ void BlockKinectVRAppApp::setup()
 	if( !_device0 ) 
 	{
 		DEBUG_MESSAGE( "(App)  Couldn't init device0\n" );
-		exit( 0 );
+		//exit( 0 );
 	}
     if( _device0)
     {
@@ -251,7 +250,7 @@ void BlockKinectVRAppApp::draw()
 	gl::color( cinder::ColorA(1, 1, 1, 1) );
     gl::draw( mDepthTex, Rectf( xoff, yoff, xoff+sx, yoff+sy) );
     gl::draw( mColorTex, Rectf( xoff+sx*1, yoff, xoff+sx*2, yoff+sy) );
-    //if( _manager->hasUsers() && _manager->hasUser(1) ) gl::draw( mOneUserTex, Rectf( 640, 0, 1280, 640 )  );//Rectf( 0, 0, 640, 480)
+    //if( _manager->hasUsers() && _manager->hasUser(1) ) gl::draw( mOneUserTex, Rectf( 640, 0, 1280, 640 )  );
 	if( _manager->hasUsers() && _manager->hasUser(1) )
 	{
 		// Render skeleton if available

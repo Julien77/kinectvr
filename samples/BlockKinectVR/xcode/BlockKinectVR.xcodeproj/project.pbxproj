@@ -26,6 +26,7 @@
 		C68B648F1462C04C00EC3F6A /* figure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C68B648D1462C04C00EC3F6A /* figure.cpp */; };
 		C68B64901462C04C00EC3F6A /* room.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C68B648E1462C04C00EC3F6A /* room.cpp */; };
 		C68B649D1462C5AB00EC3F6A /* profilePicture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C68B649C1462C5AB00EC3F6A /* profilePicture.jpg */; };
+		C6A1789C1469A26100E49E7E /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6A1789B1469A26100E49E7E /* Sound.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		C68B64921462C06400EC3F6A /* figure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = figure.h; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/figure.h; sourceTree = DEVELOPER_DIR; };
 		C68B64931462C06400EC3F6A /* room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = room.h; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/room.h; sourceTree = DEVELOPER_DIR; };
 		C68B649C1462C5AB00EC3F6A /* profilePicture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profilePicture.jpg; sourceTree = "<group>"; };
+		C6A178911469959F00E49E7E /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		C6A1789B1469A26100E49E7E /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sound.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,7 @@
 				471421D8134A711A00AB44D9 /* VOpenNIDeviceManager.cpp */,
 				471421D9134A711A00AB44D9 /* VOpenNIUser.cpp */,
 				00BAE6590E7ED9C10018A608 /* BlockKinectVRApp.cpp */,
+				C6A1789B1469A26100E49E7E /* Sound.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -146,6 +150,7 @@
 				C68B64921462C06400EC3F6A /* figure.h */,
 				C68B64931462C06400EC3F6A /* room.h */,
 				32CA4F630368D1EE00C91783 /* BlockKinectVR_Prefix.pch */,
+				C6A178911469959F00E49E7E /* Sound.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				471421DD134A711A00AB44D9 /* VOpenNIUser.cpp in Sources */,
 				C68B648F1462C04C00EC3F6A /* figure.cpp in Sources */,
 				C68B64901462C04C00EC3F6A /* room.cpp in Sources */,
+				C6A1789C1469A26100E49E7E /* Sound.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
