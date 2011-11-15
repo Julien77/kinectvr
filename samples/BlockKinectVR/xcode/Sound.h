@@ -17,8 +17,8 @@ using namespace ci::app;
 class Sound 
 {
     public:
-    Sound::Sound();
-    ~Sound::Sound();
+    Sound();
+    ~Sound();
 	void update(float zPos);    
 };
 

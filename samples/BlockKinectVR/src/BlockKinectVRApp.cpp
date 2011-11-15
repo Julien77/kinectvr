@@ -216,10 +216,12 @@ void BlockKinectVRAppApp::update()
         // calling it with all zeros let you control the camera otherwise it
         // should take the given position
         static Vec3f smoothCenter= Vec3f(0, 0, 0);
-        smoothCenter = smoothCenter* 0.8 + Vec3f(CoM[0],CoM[1],CoM[2])* 0.2;
-        
+        Vec3f newCenter = Vec3f(CoM[0],CoM[1],CoM[2]);
         //convert coordintes to room
-        this->mRoom.convertCoord(&smoothCenter);
+        this->mRoom.convertCoord(&newCenter);
+        smoothCenter = smoothCenter* 0.8 + newCenter * 0.2;
+        
+        
         
         if (mPOV)
         {
@@ -240,7 +242,10 @@ void BlockKinectVRAppApp::update()
 void BlockKinectVRAppApp::draw()
 {
 	// clear out the window with black
-	gl::clear( Color( 0, 0, 0 ), true ); 
+	gl::clear( Color( 0, 0, 0 ), true );
+    gl::enableDepthRead();
+	gl::enableDepthWrite();
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
 	float sx = 320/2;
 	float sy = 240/2;
@@ -264,22 +269,25 @@ void BlockKinectVRAppApp::draw()
         V::OpenNIUserRef user = _manager->getUser(1);
         float *CoM = new float[3];
         CoM = user->getCenterOfMass();
-        console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
+        //console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
+        
         // These are the values just after calibration pose: CoM.x=333.91, CoM.y=232.187, Com.z=873.077
         // The console says: BlockKinectVR(445,0xa03cb540) malloc: *** error for object 0xe352b8: pointer being freed was not allocated *** set a breakpoint in malloc_error_break to debug
         // Camera is in front of us: x starts at 0 on the left, y starts at 0 on the floor, z starts at O near the camera
         delete [] CoM;
 	}
-    
-//    gl::enableDepthRead();
-//	gl::enableDepthWrite();
-//	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-    
+    glDisable( GL_TEXTURE_2D );
+        
 	// drawing the components
-    glViewport( 640, 0, 640, 640 );
+    glViewport( 640, 0, 640, 300 );
+
+    gl::pushMatrices();
+    gl::setMatrices( this->mRoom.mCam );
 	this->mRoom.draw();
-//	this->mFig.draw();
-    glViewport( 0, 0, 1280, 640 ); 
+	this->mFig.draw();
+    gl::popMatrices();
+
+    glViewport( 0, 0, 1280, 300 ); 
 }
 
 void BlockKinectVRAppApp::mouseDown( MouseEvent event )

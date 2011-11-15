@@ -1,5 +1,7 @@
 #include "figure.h"
 
+#include "cinder/app/AppBasic.h"
+
 
 Figure::Figure():mPos(0,0,0)
 {

@@ -194,7 +194,6 @@ void Room::update(Vec3f eye, Vec3f center, Vec3f up)
 void Room::draw()
 {
     glPushMatrix();
-	gl::setMatrices( this->mCam );
     
 	glEnable( GL_TEXTURE_2D );		//< Enabling texture
 	this->mWallTex.bind();			//< setting the image for the walls
@@ -298,7 +297,7 @@ void Room::draw()
 
 
 	// DRAW PARAMS WINDOW
-	params::InterfaceGl::draw();
+//	params::InterfaceGl::draw();
     
     glPopMatrix();
 }

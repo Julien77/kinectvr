@@ -31,6 +31,8 @@ public:
     float maxY;
     float minZ;
     float maxZ;
+    
+    CameraPersp			mCam;
 
 private:
 
@@ -65,7 +67,6 @@ private:
 	params::InterfaceGl	mParams;
 
 	// CAMERA: camera parameters
-	CameraPersp			mCam;
 	Quatf				mSceneRotation;
 	float				mCamZ;						//< these coordinates make up mEye
 	float				mCamX;
