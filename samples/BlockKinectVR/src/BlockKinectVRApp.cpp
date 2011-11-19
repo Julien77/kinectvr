@@ -8,7 +8,6 @@
 	V.
 ***/
 
-
 #include "cinder/app/AppBasic.h"
 #include "cinder/imageio.h"
 #include "cinder/gl/gl.h"
@@ -17,6 +16,7 @@
 
 #include "room.h"
 #include "figure.h"
+#include "Sound.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -108,6 +108,7 @@ public:
     Room mRoom;
 	Figure mFig;
     bool mPOV;
+    Sound mSound;
 
     void prepareSettings(Settings* settings);
 	void setup();
@@ -189,7 +190,9 @@ void BlockKinectVRAppApp::setup()
     // CAREFUL the second vertex is "behind" the first!!
 	this->mRoom.setup(Vec3f(0,0,100),Vec3f(100,100,0));
 	this->mFig.setup();
-
+    
+    //Play sound
+    mSound.setup();
 }
 
 void BlockKinectVRAppApp::update()
@@ -210,8 +213,9 @@ void BlockKinectVRAppApp::update()
         float *CoM = new float[3];
         CoM = user->getCenterOfMass();
         console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
-        // These are the values just after calibration pose: CoM.x=333.91, CoM.y=232.187, Com.z=873.077
-
+        
+        //Change volume in function of CoM.z, the parameter sould be inside [0,100]
+        mSound.update(CoM[2]/20);
         
         // calling it with all zeros let you control the camera otherwise it
         // should take the given position
@@ -236,7 +240,6 @@ void BlockKinectVRAppApp::update()
         }
         delete [] CoM;
     }
-    
 }
 
 void BlockKinectVRAppApp::draw()
