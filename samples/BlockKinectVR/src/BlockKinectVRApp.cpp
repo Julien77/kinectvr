@@ -8,7 +8,6 @@
 	V.
 ***/
 
-
 #include "cinder/app/AppBasic.h"
 #include "cinder/imageio.h"
 #include "cinder/gl/gl.h"
@@ -21,6 +20,7 @@
 #include "room.h"
 #include "figure.h"
 #include "ball.h"
+#include "Sound.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -117,6 +117,7 @@ public:
 	Ball mBall;
     bool mPOV;
 	bool mFixed;
+    Sound mSound;
 
     void prepareSettings(Settings* settings);
 	void setup();
@@ -207,6 +208,9 @@ void BlockKinectVRAppApp::setup()
 	for(int i=0;i<BODY_PARTS_NUM;++i)rad.push_back(2.0f);
 	this->mFig.setup(rad);
 	this->mBall.setup(Vec3f(0,50,50),Vec3f(10,10,10),&(this->mFig),&(this->mRoom));
+	//Play sound
+	mSound.setup();
+
 }
 
 
@@ -263,6 +267,10 @@ void BlockKinectVRAppApp::update()
 			{
 				float* CoM = user->getCenterOfMass();
 				console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
+
+				//Change volume in function of CoM.z, the parameter sould be inside [0,100]
+				mSound.update(CoM[2]/20);
+
 
 				// calling it with all zeros let you control the camera otherwise it
 				// should take the given position
@@ -381,8 +389,6 @@ void BlockKinectVRAppApp::update()
 	}
 
 	this->mBall.update(Vec3f(0,0,0),false);
-
-    
 }
 
 void BlockKinectVRAppApp::draw()
