@@ -65,8 +65,6 @@ void Room::setup(Vec3f cornerOne, Vec3f cornerTwo)
 	// setting up textures. It should be later changed...
 	this->mFloorUrl = Url( "http://fc02.deviantart.net/fs44/f/2009/134/f/a/Stone_Dungeon_Floor_by_pfunked.jpg" );
 	this->mFloorTex = gl::Texture( loadImage( loadUrl( this->mFloorUrl) ) );
-	this->mBallUrl= Url( "http://static6.depositphotos.com/1038411/564/v/950/depositphotos_5648477-Soccer-seamless-texture.jpg" );
-	this->mBallTex  = gl::Texture( loadImage( loadUrl( this->mBallUrl ) ) );
 	this->mWallUrl= Url("http://www.publicdomainpictures.net/pictures/8000/velka/brick-wall-with-painted-sign-108112778351653zU7.jpg");
 	this->mWallTex  = gl::Texture( loadImage( loadUrl( this->mWallUrl ) ) );
 
@@ -184,7 +182,7 @@ void Room::update(Vec3f eye, Vec3f center, Vec3f up)
 	}
 	else
 	{
-		this->mCam.lookAt( eye, eye + Vec3f(0,0,-10), Vec3f::yAxis() );	
+		this->mCam.lookAt( eye, center, up );	
 	}
 
 	//gl::setMatrices( this->mCam );
@@ -281,22 +279,7 @@ void Room::draw()
 
 	
 
-	// enabling texture for balls
-	// TODO define them in a new class and give them some real physics
-	glEnable( GL_TEXTURE_2D);
-	this->mBallTex.bind();
-
-	glColor4f( ColorA( 0.3f, 0.3f, 0.3f, 1.0f ) );
-	// Draw ball int the center
-	gl::drawSphere(Vec3f(0,20,0),10,10);
-	// and to another place
-	gl::drawSphere(Vec3f(0,20,35),10,10);
-
-	glDisable(GL_TEXTURE_2D);
-
-
-
-	// DRAW PARAMS WINDOW
+		// DRAW PARAMS WINDOW
 //	params::InterfaceGl::draw();
     
     glPopMatrix();
@@ -304,7 +287,87 @@ void Room::draw()
 
 void Room::convertCoord(Vec3f *vec)
 {
-    vec->x = (vec->x - minX)/(maxX - minX)*100;
-    vec->y = (vec->y - minY)/(maxY - minY)*100;
-    vec->z = (vec->z - minZ)/(maxZ - minZ)*100;
+    vec->x = (vec->x - minX)/(maxX - minX)*this->mtop1.y;
+    vec->y = (vec->y - minY)/(maxY - minY)*this->mtop1.y;
+    vec->z = (vec->z - minZ)/(maxZ - minZ)*this->mtop1.y;
+}
+
+void Room::convertCoord(float* x,float* y,float* z, int n)
+{
+	for(int i=0; i < (2*n);++i)
+	{
+		x[i] = (x[i] - minX)/(maxX - minX)*this->mtop1.y;
+		y[i] = (y[i] - minY)/(maxY - minY)*this->mtop1.y;
+		z[i] = (z[i] - minZ)/(maxZ - minZ)*this->mtop1.y;
+	}
+	
+}
+
+
+bool Room::isCollisionWithBall( Vec3f center,float radius )
+{
+	if (center.y < (this->mbottom1.y + radius))
+	{
+		return true;
+	}
+	if (center.y > (this->mtop1.y - radius))
+	{
+		return true;
+	}
+	if (center.x < (this->mbottom1.x + radius))
+	{
+		return true;
+	}
+	if (center.x > (this->mbottom2.x -radius))
+	{
+		return true;
+	}
+	// z axis has a direction to the viewer
+	if (center.z > (this->mbottom1.z - radius))
+	{
+		return true;
+	}
+	if (center.z < (this->mbottom3.z + radius))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+void Room::setBallVelocityAfterCollision( Vec3f* vel,Vec3f* center,float radius )
+{
+	float dissipation=0.75f;
+
+	if (center->y < (this->mbottom1.y + radius))
+	{
+		center->y = this->mbottom1.y + radius;
+		vel->y *=-dissipation;
+	}
+	if (center->y > (this->mtop1.y - radius))
+	{
+		center->y=this->mtop1.y - radius;
+		vel->y *=-dissipation;
+	}
+	if (center->x < (this->mbottom1.x + radius))
+	{
+		center->x=this->mbottom1.x + radius;
+		vel->x *=-dissipation;
+	}
+	if (center->x > (this->mbottom2.x -radius))
+	{
+		center->x=this->mbottom2.x - radius;
+		vel->x *=-dissipation;
+	}
+	// z axis has a direction to the viewer
+	if (center->z > (this->mbottom1.z - radius))
+	{
+		center->z= this->mbottom1.z - radius;
+		vel->z *=-dissipation;
+	}
+	if (center->z < (this->mbottom4.z + radius))
+	{
+		center->z=this->mbottom4.z + radius;
+		vel->z *=-dissipation;
+	}
 }

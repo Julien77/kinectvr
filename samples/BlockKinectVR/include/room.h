@@ -24,7 +24,10 @@ public:
 	void update(Vec3f eye ,Vec3f center,Vec3f up);
 	void draw();
     void convertCoord(Vec3f *vec);
-    
+	void convertCoord(float* x,float* y,float* z, int n);
+	bool isCollisionWithBall( Vec3f center,float radius );
+	void setBallVelocityAfterCollision( Vec3f* vel,Vec3f* center,float radius );
+
     float minX;
     float maxX;
     float minY;
@@ -57,8 +60,6 @@ private:
 	// Textures and resources used. So far determined with urls which should be later changed to local resources
 	Url					mFloorUrl;
 	gl::Texture         mFloorTex;
-	Url					mBallUrl;
-	gl::Texture         mBallTex;
 	Url					mWallUrl;
 	gl::Texture         mWallTex;
 
