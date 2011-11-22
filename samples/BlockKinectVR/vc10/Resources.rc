@@ -1,6 +1,10 @@
 #if  defined(_MSC_VER) || defined(_WIN32)
 	//Windows stuff
+#include "Resources.h"
 
+	RES_SOUND1      MP3             "..\\resources\\guitar.mp3"
+
+	
 #else
 	// other op.systems
 	#include "cinder/CinderResources.h"
