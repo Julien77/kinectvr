@@ -21,7 +21,7 @@ void Sound::setup()
     try 
     {
         //add the audio track the default audio output
-        mTrack1 = audio::Output::addTrack( audio::load( loadResource( RES_SOUND1, "MP3" ) ) );
+        mTrack1 = audio::Output::addTrack( audio::load( loadResource( RES_SOUND1) ) );
         
         //you must enable enable PCM buffering on the track to be able to call getPcmBuffer on it later
         //mTrack1->enablePcmBuffering( true );

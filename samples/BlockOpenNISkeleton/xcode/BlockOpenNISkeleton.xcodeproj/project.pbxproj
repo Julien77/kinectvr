@@ -240,17 +240,17 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"\"$(CINDER_PATH)/boost\"",
-					"\"$(CINDER_PATH)/blocks/BlockOpenNI/include/OpenNI\"",
+					"\"$(CINDER_PATH)/blocks/kinectvr/include/OpenNI\"",
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"\"$(CINDER_PATH)/lib/libcinder_d.a\"",
 					"-lcurl",
-					"\"$(CINDER_PATH)/blocks/BlockOpenNI/lib/macosx/libOpenNI.dylib\"",
+					"\"$(CINDER_PATH)/blocks/kinectvr/lib/macosx/libOpenNI.dylib\"",
 				);
 				PRODUCT_NAME = BlockOpenNISkeleton;
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include \"$(CINDER_PATH)/blocks/BlockOpenNI/include\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include \"$(CINDER_PATH)/blocks/kinectvr/include\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -271,18 +271,18 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"\"$(CINDER_PATH)/boost\"",
-					"\"$(CINDER_PATH)/blocks/BlockOpenNI/include/OpenNI\"",
+					"\"$(CINDER_PATH)/blocks/kinectvr/include/OpenNI\"",
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"\"$(CINDER_PATH)/lib/libcinder.a\"",
 					"-lcurl",
-					"\"$(CINDER_PATH)/blocks/BlockOpenNI/lib/macosx/libOpenNI.dylib\"",
+					"\"$(CINDER_PATH)/blocks/kinectvr/lib/macosx/libOpenNI.dylib\"",
 				);
 				PRODUCT_NAME = BlockOpenNISkeleton;
 				STRIP_INSTALLED_PRODUCT = YES;
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include \"$(CINDER_PATH)/blocks/BlockOpenNI/include\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include \"$(CINDER_PATH)/blocks/kinectvr/include\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
