@@ -121,10 +121,10 @@ void Figure::setBallVelocityAfterCollsision( Vec3f* vel,Vec3f center, float radi
 		}
 		else
 		{
-			Vec3f ray = this->mHalfAxe.safeNormalized();
+			Vec3f ray = - this->mHalfAxe.safeNormalized();
 			float penalty =(center-this->mPos).length();
 			float scale=((radius + this->mHalfAxe.length())/penalty);//*((radius + this->mHalfAxe.length())/penalty);
-			*vel = *vel + ray*ray.dot(*vel)*2 - ray*ray.dot(this->mVel)*scale;
+			*vel = *vel - ray*ray.dot(*vel)*2 + ray*ray.dot(this->mVel)*scale;
 		}
 	}
 
