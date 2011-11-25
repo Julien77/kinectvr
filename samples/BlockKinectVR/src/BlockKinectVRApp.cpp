@@ -266,7 +266,7 @@ void BlockKinectVRAppApp::update()
 			if (mPOV)
 			{
 				float* CoM = user->getCenterOfMass();
-				console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
+				//console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
 
 				//Change volume in function of CoM.z, the parameter sould be inside [0,100]
 				mSound.update(CoM[2]/20);
@@ -367,7 +367,6 @@ void BlockKinectVRAppApp::update()
 				smoothedNormal = smoothedNormal*0.6f + normalvec *0.4f;
 				smoothedUp = smoothedUp*0.6f + up *0.4f;
 
-				console()<<"norm: "<<normalvec<<std::endl;
 				if (mFixed)
 				{
 					this->mRoom.update(Vec3f(50,35,100),Vec3f(50,35,90),Vec3f::yAxis());

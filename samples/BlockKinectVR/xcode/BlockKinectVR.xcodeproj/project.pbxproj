@@ -24,6 +24,7 @@
 		53E3CDFC0E86099300238D2B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C644240A1477276F00462699 /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C64424091477276F00462699 /* Sound.cpp */; };
+		C64EE75D147F9B4A0050F2BA /* ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C64EE75C147F9B4A0050F2BA /* ball.cpp */; };
 		C68B648F1462C04C00EC3F6A /* figure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C68B648D1462C04C00EC3F6A /* figure.cpp */; };
 		C68B64901462C04C00EC3F6A /* room.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C68B648E1462C04C00EC3F6A /* room.cpp */; };
 		C6C1B8A2147EDB3B00C6AF6E /* guitar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C6C1B8A1147EDB3B00C6AF6E /* guitar.mp3 */; };
@@ -55,6 +56,8 @@
 		C64424071477275200462699 /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/Resources.h; sourceTree = DEVELOPER_DIR; };
 		C64424081477275200462699 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sound.h; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/Sound.h; sourceTree = DEVELOPER_DIR; };
 		C64424091477276F00462699 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sound.cpp; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/Sound.cpp; sourceTree = DEVELOPER_DIR; };
+		C64EE75A147F9B330050F2BA /* ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ball.h; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/ball.h; sourceTree = DEVELOPER_DIR; };
+		C64EE75C147F9B4A0050F2BA /* ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ball.cpp; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/ball.cpp; sourceTree = DEVELOPER_DIR; };
 		C68B648D1462C04C00EC3F6A /* figure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = figure.cpp; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/figure.cpp; sourceTree = DEVELOPER_DIR; };
 		C68B648E1462C04C00EC3F6A /* room.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = room.cpp; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/room.cpp; sourceTree = DEVELOPER_DIR; };
 		C68B64921462C06400EC3F6A /* figure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = figure.h; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/figure.h; sourceTree = DEVELOPER_DIR; };
@@ -86,6 +89,7 @@
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C64EE75C147F9B4A0050F2BA /* ball.cpp */,
 				C64424091477276F00462699 /* Sound.cpp */,
 				C68B648D1462C04C00EC3F6A /* figure.cpp */,
 				C68B648E1462C04C00EC3F6A /* room.cpp */,
@@ -148,6 +152,7 @@
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				C64EE75A147F9B330050F2BA /* ball.h */,
 				C64424071477275200462699 /* Resources.h */,
 				C64424081477275200462699 /* Sound.h */,
 				C68B64921462C06400EC3F6A /* figure.h */,
@@ -243,6 +248,7 @@
 				C68B648F1462C04C00EC3F6A /* figure.cpp in Sources */,
 				C68B64901462C04C00EC3F6A /* room.cpp in Sources */,
 				C644240A1477276F00462699 /* Sound.cpp in Sources */,
+				C64EE75D147F9B4A0050F2BA /* ball.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

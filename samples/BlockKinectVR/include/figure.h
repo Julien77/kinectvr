@@ -17,7 +17,7 @@ public:
 	~Figure();
 	void setup(float radius);
 	void update(Vec3f pos);
-	void Figure::update( Vec3f cp1,Vec3f cp2 );
+	void update( Vec3f cp1,Vec3f cp2 );
 	void draw();
 
 	bool isCollisionWithBall(Vec3f center,float radius);

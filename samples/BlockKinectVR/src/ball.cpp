@@ -8,8 +8,7 @@
 
 Ball::Ball():mPos(0,0,0),mMass(2),mRadius(10)
 {
-	this->mBallUrl= Url( "http://2.bp.blogspot.com/_nIo9hBIEPhw/TIQI1BMvilI/AAAAAAAABHg/9Z_geCUIQHU/s1600/Soccer+Ball.png" );
-	this->mBallTex  = gl::Texture( loadImage( loadUrl( this->mBallUrl ) ) );
+	
 }
 
 Ball::~Ball()
@@ -20,6 +19,9 @@ Ball::~Ball()
 
 void Ball::setup(Vec3f pos, Vec3f vel, MenFigure* fig,Room * room)
 {
+    this->mBallUrl= Url( "http://superstreaker.zescript.info/texture_ball.jpg");
+	this->mBallTex  = gl::Texture( loadImage( loadUrl( this->mBallUrl ) ) );
+    
 	this->mPos = pos;
 	this->mPrevPos = pos;
 	this->mVel = vel;
