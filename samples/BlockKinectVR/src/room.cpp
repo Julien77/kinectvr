@@ -287,18 +287,18 @@ void Room::draw()
 
 void Room::convertCoord(Vec3f *vec)
 {
-    vec->x = (vec->x - minX)/(maxX - minX)*this->mtop1.y;
+    vec->x = (vec->x - minX)/(maxX - minX)*this->mtop2.x;
     vec->y = (vec->y - minY)/(maxY - minY)*this->mtop1.y;
-    vec->z = (vec->z - minZ)/(maxZ - minZ)*this->mtop1.y;
+    vec->z = (vec->z - minZ)/(maxZ - minZ)*this->mtop1.z;
 }
 
 void Room::convertCoord(float* x,float* y,float* z, int n)
 {
 	for(int i=0; i < (2*n);++i)
 	{
-		x[i] = (x[i] - minX)/(maxX - minX)*this->mtop1.y;
+		x[i] = (x[i] - minX)/(maxX - minX)*this->mtop2.x;
 		y[i] = (y[i] - minY)/(maxY - minY)*this->mtop1.y;
-		z[i] = (z[i] - minZ)/(maxZ - minZ)*this->mtop1.y;
+		z[i] = (z[i] - minZ)/(maxZ - minZ)*this->mtop1.z;
 	}
 	
 }

@@ -245,6 +245,14 @@ static void getProjectiveCoordinates(float* x,float* y,float* z, int pos,V::Open
 	}
 }
 
+int getFirstUserId(V::OpenNIDeviceManager*	manager)
+{
+    for (int i=1; i<9; i++)
+    {
+        if(manager->hasUser(i)) return i;
+    }
+    return 0;
+}
 
 void BlockKinectVRAppApp::update()
 {	
@@ -256,17 +264,17 @@ void BlockKinectVRAppApp::update()
     }
     
     // Get texture and coordinates of user
-    if( _manager->hasUsers() && _manager->hasUser(1) ) 
+    if( _manager->hasUsers() ) 
     {
-        V::OpenNIUserRef user = _manager->getUser(1);
+        V::OpenNIUserRef user = _manager->getUser( getFirstUserId( _manager ) );
 		if (user)
 		{
-			mOneUserTex.update( getUserColorImage(1) );
+			mOneUserTex.update( getUserColorImage( getFirstUserId( _manager ) ) );
 
 			if (mPOV)
 			{
 				float* CoM = user->getCenterOfMass();
-				//console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
+				console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
 
 				//Change volume in function of CoM.z, the parameter sould be inside [0,100]
 				mSound.update(CoM[2]/20);
@@ -409,7 +417,7 @@ void BlockKinectVRAppApp::draw()
 		gl::draw( mColorTex, Rectf( xoff+sx*1, yoff + sy, xoff+sx*2, yoff + 2 * sy) );
 		gl::translate(Vec3f(0,0,1));
 		//if( _manager->hasUsers() && _manager->hasUser(1) ) gl::draw( mOneUserTex, Rectf( 640, 0, 1280, 640 )  );
-		if( _manager->hasUsers() && _manager->hasUser(1) )
+		if( _manager->hasUsers() )
 		{
 			// Render skeleton if available
 			_manager->renderJoints( 3 );
@@ -453,9 +461,9 @@ void BlockKinectVRAppApp::keyDown( KeyEvent event )
 	}
     else if( event.getChar() == 'i' || event.getChar() == 'I' )
     {
-		if( _manager->hasUsers() && _manager->hasUser(1) )
+		if( _manager->hasUsers() )
 		{
-			V::OpenNIUserRef user = _manager->getUser(1);
+			V::OpenNIUserRef user = _manager->getUser( getFirstUserId( _manager ) );
 			if(user)
 			{
 				float * CoM = user->getCenterOfMass();
@@ -467,9 +475,9 @@ void BlockKinectVRAppApp::keyDown( KeyEvent event )
 	}
         else if( event.getChar() == 'o' || event.getChar() == 'O' )
     {
-		if( _manager->hasUsers() && _manager->hasUser(1) )
+		if( _manager->hasUsers() )
 		{
-			V::OpenNIUserRef user = _manager->getUser(1);
+			V::OpenNIUserRef user = _manager->getUser( getFirstUserId( _manager ) );
 			if(user)
 			{
 				float * CoM = user->getCenterOfMass();
@@ -490,9 +498,9 @@ void BlockKinectVRAppApp::keyDown( KeyEvent event )
 	}
 	else if( event.getChar() == 'k' || event.getChar() == 'K' )
 	{
-		if( _manager->hasUsers() && _manager->hasUser(1) )
+		if( _manager->hasUsers() )
 		{
-			V::OpenNIUserRef user = _manager->getUser(1);
+			V::OpenNIUserRef user = _manager->getUser( getFirstUserId( _manager ) );
 			if(user)
 			{
 				// no error checking
@@ -508,9 +516,9 @@ void BlockKinectVRAppApp::keyDown( KeyEvent event )
 	}
 	else if( event.getChar() == 'l' || event.getChar() == 'L' )
 	{
-		if( _manager->hasUsers() && _manager->hasUser(1) )
+		if( _manager->hasUsers() )
 		{
-			V::OpenNIUserRef user = _manager->getUser(1);
+			V::OpenNIUserRef user = _manager->getUser( getFirstUserId( _manager ) );
 			if(user)
 			{
 				// no error checking
