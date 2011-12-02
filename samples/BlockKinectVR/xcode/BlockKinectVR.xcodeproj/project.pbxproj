@@ -30,6 +30,7 @@
 		C69A5B62148922820040C188 /* brick_wall_with_painted_sign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C69A5B60148922820040C188 /* brick_wall_with_painted_sign.jpg */; };
 		C69A5B63148922820040C188 /* Stone_Dungeon_Floor_by_pfunked.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C69A5B61148922820040C188 /* Stone_Dungeon_Floor_by_pfunked.jpg */; };
 		C69A5B65148924D20040C188 /* texture_ball.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C69A5B64148924D20040C188 /* texture_ball.jpg */; };
+		C69A5B67148930830040C188 /* fofo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C69A5B66148930830040C188 /* fofo.jpg */; };
 		C6C1B8A2147EDB3B00C6AF6E /* guitar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C6C1B8A1147EDB3B00C6AF6E /* guitar.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		C69A5B60148922820040C188 /* brick_wall_with_painted_sign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = brick_wall_with_painted_sign.jpg; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/brick_wall_with_painted_sign.jpg; sourceTree = DEVELOPER_DIR; };
 		C69A5B61148922820040C188 /* Stone_Dungeon_Floor_by_pfunked.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Stone_Dungeon_Floor_by_pfunked.jpg; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/Stone_Dungeon_Floor_by_pfunked.jpg; sourceTree = DEVELOPER_DIR; };
 		C69A5B64148924D20040C188 /* texture_ball.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = texture_ball.jpg; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/texture_ball.jpg; sourceTree = DEVELOPER_DIR; };
+		C69A5B66148930830040C188 /* fofo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fofo.jpg; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/fofo.jpg; sourceTree = DEVELOPER_DIR; };
 		C6C1B8A1147EDB3B00C6AF6E /* guitar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = guitar.mp3; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/guitar.mp3; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C69A5B66148930830040C188 /* fofo.jpg */,
 				C69A5B64148924D20040C188 /* texture_ball.jpg */,
 				C69A5B60148922820040C188 /* brick_wall_with_painted_sign.jpg */,
 				C69A5B61148922820040C188 /* Stone_Dungeon_Floor_by_pfunked.jpg */,
@@ -242,6 +245,7 @@
 				C69A5B62148922820040C188 /* brick_wall_with_painted_sign.jpg in Resources */,
 				C69A5B63148922820040C188 /* Stone_Dungeon_Floor_by_pfunked.jpg in Resources */,
 				C69A5B65148924D20040C188 /* texture_ball.jpg in Resources */,
+				C69A5B67148930830040C188 /* fofo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

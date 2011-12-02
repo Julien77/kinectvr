@@ -58,10 +58,12 @@ private:
 	Vec3f mtop4;
     
 	// Textures and resources used. So far determined with urls which should be later changed to local resources
-	Url					mFloorUrl;
+	//Url					mFloorUrl;
 	gl::Texture         mFloorTex;
-	Url					mWallUrl;
+	//Url					mWallUrl;
 	gl::Texture         mWallTex;
+    gl::Texture         mLoudspeaker;
+    
 
 
 	// PARAMS: this is the on screen parameter display (probably only needed for testing)

@@ -70,6 +70,7 @@ void Room::setup(Vec3f cornerOne, Vec3f cornerTwo)
     //this->mWallUrl= Url("http://www.publicdomainpictures.net/pictures/8000/velka/brick-wall-with-painted-sign-108112778351653zU7.jpg");
 	//this->mWallTex  = gl::Texture( loadImage( loadUrl( this->mWallUrl ) ) );
     this->mWallTex  = gl::Texture( loadImage( loadResource( RES_IMAGE2 ) ) );
+    this->mLoudspeaker = gl::Texture( loadImage( loadResource( RES_IMAGE4) ) );
 
 
 	
@@ -265,6 +266,7 @@ void Room::draw()
 	glVertex3f( this->mbottom3 );
 	glTexCoord2f(0.0f, 1.0f); 
 	glVertex3f( this->mbottom4);
+    
 	glEnd();
 
 	glDisable(GL_TEXTURE_2D);
