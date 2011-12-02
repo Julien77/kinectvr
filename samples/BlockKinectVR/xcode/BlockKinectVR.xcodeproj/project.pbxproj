@@ -27,6 +27,9 @@
 		C64EE75D147F9B4A0050F2BA /* ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C64EE75C147F9B4A0050F2BA /* ball.cpp */; };
 		C68B648F1462C04C00EC3F6A /* figure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C68B648D1462C04C00EC3F6A /* figure.cpp */; };
 		C68B64901462C04C00EC3F6A /* room.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C68B648E1462C04C00EC3F6A /* room.cpp */; };
+		C69A5B62148922820040C188 /* brick_wall_with_painted_sign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C69A5B60148922820040C188 /* brick_wall_with_painted_sign.jpg */; };
+		C69A5B63148922820040C188 /* Stone_Dungeon_Floor_by_pfunked.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C69A5B61148922820040C188 /* Stone_Dungeon_Floor_by_pfunked.jpg */; };
+		C69A5B65148924D20040C188 /* texture_ball.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C69A5B64148924D20040C188 /* texture_ball.jpg */; };
 		C6C1B8A2147EDB3B00C6AF6E /* guitar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C6C1B8A1147EDB3B00C6AF6E /* guitar.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,9 @@
 		C68B648E1462C04C00EC3F6A /* room.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = room.cpp; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/room.cpp; sourceTree = DEVELOPER_DIR; };
 		C68B64921462C06400EC3F6A /* figure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = figure.h; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/figure.h; sourceTree = DEVELOPER_DIR; };
 		C68B64931462C06400EC3F6A /* room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = room.h; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/room.h; sourceTree = DEVELOPER_DIR; };
+		C69A5B60148922820040C188 /* brick_wall_with_painted_sign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = brick_wall_with_painted_sign.jpg; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/brick_wall_with_painted_sign.jpg; sourceTree = DEVELOPER_DIR; };
+		C69A5B61148922820040C188 /* Stone_Dungeon_Floor_by_pfunked.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Stone_Dungeon_Floor_by_pfunked.jpg; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/Stone_Dungeon_Floor_by_pfunked.jpg; sourceTree = DEVELOPER_DIR; };
+		C69A5B64148924D20040C188 /* texture_ball.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = texture_ball.jpg; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/texture_ball.jpg; sourceTree = DEVELOPER_DIR; };
 		C6C1B8A1147EDB3B00C6AF6E /* guitar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = guitar.mp3; path = Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/guitar.mp3; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -152,8 +158,8 @@
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				C64EE75A147F9B330050F2BA /* ball.h */,
 				C64424071477275200462699 /* Resources.h */,
+				C64EE75A147F9B330050F2BA /* ball.h */,
 				C64424081477275200462699 /* Sound.h */,
 				C68B64921462C06400EC3F6A /* figure.h */,
 				C68B64931462C06400EC3F6A /* room.h */,
@@ -165,6 +171,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C69A5B64148924D20040C188 /* texture_ball.jpg */,
+				C69A5B60148922820040C188 /* brick_wall_with_painted_sign.jpg */,
+				C69A5B61148922820040C188 /* Stone_Dungeon_Floor_by_pfunked.jpg */,
 				C6C1B8A1147EDB3B00C6AF6E /* guitar.mp3 */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				00CCAF14116A9FEE008396D5 /* CinderApp.icns */,
@@ -230,6 +239,9 @@
 			files = (
 				00CCAF15116A9FEE008396D5 /* CinderApp.icns in Resources */,
 				C6C1B8A2147EDB3B00C6AF6E /* guitar.mp3 in Resources */,
+				C69A5B62148922820040C188 /* brick_wall_with_painted_sign.jpg in Resources */,
+				C69A5B63148922820040C188 /* Stone_Dungeon_Floor_by_pfunked.jpg in Resources */,
+				C69A5B65148924D20040C188 /* texture_ball.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

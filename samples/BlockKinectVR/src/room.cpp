@@ -1,4 +1,5 @@
 #include "room.h"
+#include "Resources.h"
 
 #include "cinder/app/AppBasic.h"
 
@@ -63,10 +64,12 @@ void Room::setup(Vec3f cornerOne, Vec3f cornerTwo)
 
 
 	// setting up textures. It should be later changed...
-	this->mFloorUrl = Url( "http://fc02.deviantart.net/fs44/f/2009/134/f/a/Stone_Dungeon_Floor_by_pfunked.jpg" );
-	this->mFloorTex = gl::Texture( loadImage( loadUrl( this->mFloorUrl) ) );
-	this->mWallUrl= Url("http://www.publicdomainpictures.net/pictures/8000/velka/brick-wall-with-painted-sign-108112778351653zU7.jpg");
-	this->mWallTex  = gl::Texture( loadImage( loadUrl( this->mWallUrl ) ) );
+	//this->mFloorUrl = Url( "http://fc02.deviantart.net/fs44/f/2009/134/f/a/Stone_Dungeon_Floor_by_pfunked.jpg" );
+	//this->mFloorTex = gl::Texture( loadImage( loadUrl( this->mFloorUrl) ) );
+	this->mFloorTex = gl::Texture( loadImage( loadResource( RES_IMAGE1 ) ) );
+    //this->mWallUrl= Url("http://www.publicdomainpictures.net/pictures/8000/velka/brick-wall-with-painted-sign-108112778351653zU7.jpg");
+	//this->mWallTex  = gl::Texture( loadImage( loadUrl( this->mWallUrl ) ) );
+    this->mWallTex  = gl::Texture( loadImage( loadResource( RES_IMAGE2 ) ) );
 
 
 	

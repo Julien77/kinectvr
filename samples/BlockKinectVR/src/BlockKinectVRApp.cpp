@@ -274,11 +274,9 @@ void BlockKinectVRAppApp::update()
 			if (mPOV)
 			{
 				float* CoM = user->getCenterOfMass();
-				console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
+				//console()<< "CoM.x=" << CoM[0] << ", CoM.y=" << CoM[1] << ", Com.z=" << CoM[2] << endl;
 
-				//Change volume in function of CoM.z, the parameter sould be inside [0,100]
-				mSound.update(CoM[2]/20);
-
+				
 
 				// calling it with all zeros let you control the camera otherwise it
 				// should take the given position
@@ -286,6 +284,9 @@ void BlockKinectVRAppApp::update()
 				Vec3f newCenter = Vec3f(CoM[0],CoM[1],CoM[2]);
 				//convert coordinates to room system
 				this->mRoom.convertCoord(&newCenter);
+                //Change volume in function of CoM.z, the parameter sould be inside [0,100]
+				mSound.update(newCenter.z );
+
 				smoothCenter = smoothCenter* 0.8 + newCenter * 0.2;
 
 				this->mRoom.update(smoothCenter,smoothCenter -Vec3f(0,0,1),Vec3f(0,1,0));

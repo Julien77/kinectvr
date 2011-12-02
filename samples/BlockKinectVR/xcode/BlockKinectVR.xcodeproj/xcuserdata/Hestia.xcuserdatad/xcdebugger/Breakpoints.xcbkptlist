@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "0"
          filePath = "/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/BlockKinectVRApp.cpp"
-         timestampString = "343921529.004204"
+         timestampString = "344526307.929194"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "282"
-         endingLineNumber = "282"
+         startingLineNumber = "280"
+         endingLineNumber = "280"
          landmarkName = "BlockKinectVRAppApp::update()"
          landmarkType = "5">
       </FileBreakpoint>

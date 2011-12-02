@@ -1,6 +1,7 @@
 #include "ball.h"
 #include "figure.h"
 #include "room.h"
+#include "Resources.h"
 
 #include "cinder/app/AppBasic.h"
 
@@ -19,8 +20,9 @@ Ball::~Ball()
 
 void Ball::setup(Vec3f pos, Vec3f vel, MenFigure* fig,Room * room)
 {
-    this->mBallUrl= Url( "http://superstreaker.zescript.info/texture_ball.jpg");
-	this->mBallTex  = gl::Texture( loadImage( loadUrl( this->mBallUrl ) ) );
+    //this->mBallUrl= Url( "http://superstreaker.zescript.info/texture_ball.jpg");
+	//this->mBallTex  = gl::Texture( loadImage( loadUrl( this->mBallUrl ) ) );
+    this->mBallTex  = gl::Texture( loadImage( ci::app::loadResource( RES_IMAGE3 ) )  );
     
 	this->mPos = pos;
 	this->mPrevPos = pos;
