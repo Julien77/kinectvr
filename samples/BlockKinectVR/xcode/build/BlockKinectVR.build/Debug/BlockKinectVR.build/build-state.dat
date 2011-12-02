@@ -4,19 +4,19 @@ r1
 cCheck dependencies
 cProcessInfoPlistFile /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app/Contents/Info.plist Info.plist
 cCpResource CinderApp.icns build/Debug/BlockKinectVR.app/Contents/Resources/CinderApp.icns
+cCpResource /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/guitar.mp3 build/Debug/BlockKinectVR.app/Contents/Resources/guitar.mp3
 cCpResource /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/brick_wall_with_painted_sign.jpg build/Debug/BlockKinectVR.app/Contents/Resources/brick_wall_with_painted_sign.jpg
 cCpResource /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/Stone_Dungeon_Floor_by_pfunked.jpg build/Debug/BlockKinectVR.app/Contents/Resources/Stone_Dungeon_Floor_by_pfunked.jpg
-cCpResource /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/guitar.mp3 build/Debug/BlockKinectVR.app/Contents/Resources/guitar.mp3
 cCpResource /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/texture_ball.jpg build/Debug/BlockKinectVR.app/Contents/Resources/texture_ball.jpg
 cCpResource /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/fofo.jpg build/Debug/BlockKinectVR.app/Contents/Resources/fofo.jpg
 cProcessPCH++ /var/folders/pw/pwc7edNZFwq-hWnUkDgWZk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BlockKinectVR_Prefix-gyixqrdbksvvvldtpsmwdlqcbpzs/BlockKinectVR_Prefix.pch.gch BlockKinectVR_Prefix.pch normal i386 c++ com.apple.compilers.llvmgcc42
-cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/BlockKinectVRApp.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/../src/BlockKinectVRApp.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/figure.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/figure.cpp normal i386 c++ com.apple.compilers.llvmgcc42
+cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/VOpenNIDeviceManager.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/../../../src/VOpenNIDeviceManager.cpp normal i386 c++ com.apple.compilers.llvmgcc42
+cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/OpenNIRecorder.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/../../../src/OpenNIRecorder.cpp normal i386 c++ com.apple.compilers.llvmgcc42
 cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/VOpenNIUser.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/../../../src/VOpenNIUser.cpp normal i386 c++ com.apple.compilers.llvmgcc42
 cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/VOpenNIDevice.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/../../../src/VOpenNIDevice.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/OpenNIRecorder.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/../../../src/OpenNIRecorder.cpp normal i386 c++ com.apple.compilers.llvmgcc42
+cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/BlockKinectVRApp.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/../src/BlockKinectVRApp.cpp normal i386 c++ com.apple.compilers.llvmgcc42
+cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/figure.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/figure.cpp normal i386 c++ com.apple.compilers.llvmgcc42
 cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/room.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/room.cpp normal i386 c++ com.apple.compilers.llvmgcc42
-cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/VOpenNIDeviceManager.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/../../../src/VOpenNIDeviceManager.cpp normal i386 c++ com.apple.compilers.llvmgcc42
 cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/Sound.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/Sound.cpp normal i386 c++ com.apple.compilers.llvmgcc42
 cCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/ball.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/ball.cpp normal i386 c++ com.apple.compilers.llvmgcc42
 cLd /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app/Contents/MacOS/BlockKinectVR normal i386
@@ -278,8 +278,8 @@ i"VOpenNICommon.h"
 i"VOpenNISurface.h"
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/include/VOpenNIHeaders.h
-c000000004ED680D30000000000000094
-t1322680531
+c000000004ED900FA0000000000000094
+t1322844410
 s148
 i"VOpenNICommon.h"
 i"VOpenNIBone.h"
@@ -300,8 +300,8 @@ s1639
 i"VOpenNICommon.h"
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/Resources.h
-c000000004ED8F9A200000000000002DF
-t1322842530
+c000000004ED900FA00000000000002DF
+t1322844410
 s735
 i"cinder/CinderResources.h"
 
@@ -313,8 +313,8 @@ i"cinder/audio/PcmBuffer.h"
 i"cinder/audio/Output.h"
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/ball.h
-c000000004ED680D30000000000000265
-t1322680531
+c000000004ED900FA0000000000000265
+t1322844410
 s613
 i"cinder/gl/gl.h"
 i"cinder/Vector.h"
@@ -322,15 +322,15 @@ i"cinder/gl/Texture.h"
 i"cinder/imageio.h"
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/figure.h
-c000000004ED680D30000000000000420
-t1322680531
+c000000004ED900FB0000000000000420
+t1322844411
 s1056
 i"cinder/gl/gl.h"
 i"cinder/Vector.h"
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/include/room.h
-c000000004ED8FCBA00000000000006B3
-t1322843322
+c000000004ED900FB00000000000006B3
+t1322844411
 s1715
 i"cinder/gl/gl.h"
 i"cinder/gl/Texture.h"
@@ -339,18 +339,18 @@ i"cinder/Camera.h"
 i"cinder/imageio.h"
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/Stone_Dungeon_Floor_by_pfunked.jpg
-c000000004ED8E960000000000007B627
-t1322838368
+c000000004ED900FB000000000007B627
+t1322844411
 s505383
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/brick_wall_with_painted_sign.jpg
-c000000004ED8EA270000000000059A82
-t1322838567
+c000000004ED900FB0000000000059A82
+t1322844411
 s367234
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/fofo.jpg
-c000000004ED8F7EC0000000000051798
-t1322842092
+c000000004ED900FB0000000000051798
+t1322844411
 s333720
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/guitar.mp3
@@ -359,13 +359,13 @@ t1308181111
 s516932
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/resources/texture_ball.jpg
-c000000004ED8ED330000000000002C29
-t1322839347
+c000000004ED900FB0000000000002C29
+t1322844411
 s11305
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/Sound.cpp
-c000000004ED680D30000000000000446
-t1322680531
+c000000004ED900FB0000000000000446
+t1322844411
 s1094
 i"Sound.h"
 i"Resources.h"
@@ -374,8 +374,8 @@ i"cinder/audio/Output.h"
 i"cinder/audio/PcmBuffer.h"
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/ball.cpp
-c000000004ED8EE150000000000000988
-t1322839573
+c000000004ED900FB0000000000000988
+t1322844411
 s2440
 i"ball.h"
 i"figure.h"
@@ -384,15 +384,15 @@ i"Resources.h"
 i"cinder/app/AppBasic.h"
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/figure.cpp
-c000000004ED680D30000000000001345
-t1322680531
+c000000004ED900FB0000000000001345
+t1322844411
 s4933
 i"figure.h"
 i"cinder/app/AppBasic.h"
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/src/room.cpp
-c000000004ED8FCBA0000000000002749
-t1322843322
+c000000004ED900FB0000000000002749
+t1322844411
 s10057
 i"room.h"
 i"Resources.h"
@@ -427,8 +427,8 @@ i"VOpenNIDevice.h"
 i"VOpenNIUser.h"
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/../src/BlockKinectVRApp.cpp
-c000000004ED8D65C0000000000003C59
-t1322833500
+c000000004ED900FB0000000000003C59
+t1322844411
 s15449
 i"cinder/app/AppBasic.h"
 i"cinder/imageio.h"
@@ -454,12 +454,12 @@ t1310478097
 s114357
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/BlockKinectVR.LinkFileList
-c000000004ED6865D00000000000005E2
-t1322681949
+c000000004ED900FB00000000000005E2
+t1322844411
 s1506
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/BlockKinectVRApp.o
-t1322833504
+t1322844411
 s731436
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/OpenNIRecorder.o
@@ -467,7 +467,7 @@ t1322681953
 s217204
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/Sound.o
-t1322842534
+t1322844411
 s293452
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/VOpenNIDevice.o
@@ -483,19 +483,19 @@ t1322681955
 s283736
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/ball.o
-t1322842534
+t1322844411
 s267540
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/figure.o
-t1322681956
+t1322844411
 s164676
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/room.o
-t1322842534
-s464272
+t1322844411
+s464880
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app
-t1322842535
+t1322843327
 s102
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app/Contents/Info.plist
@@ -503,7 +503,7 @@ t1322681949
 s1248
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app/Contents/MacOS/BlockKinectVR
-t1322842535
+t1322844411
 s6982136
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app/Contents/PkgInfo
@@ -515,15 +515,15 @@ t1322681949
 s114357
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app/Contents/Resources/Stone_Dungeon_Floor_by_pfunked.jpg
-t1322839149
+t1322844411
 s505383
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app/Contents/Resources/brick_wall_with_painted_sign.jpg
-t1322839149
+t1322844411
 s367234
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app/Contents/Resources/fofo.jpg
-t1322842531
+t1322844411
 s333720
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app/Contents/Resources/guitar.mp3
@@ -531,7 +531,7 @@ t1322681949
 s516932
 
 N/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app/Contents/Resources/texture_ball.jpg
-t1322839453
+t1322844411
 s11305
 
 N/Developer/Applications/cinder_master/boost/boost/aligned_storage.hpp
@@ -7921,7 +7921,7 @@ r0
 
 CCheck dependencies
 r0
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesda00403a3489b441^b6a2413a3489b441^---0#1#0#--18"Check dependencies
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies63d08dc35389b441^0a491ac55389b441^---0#1#0#--18"Check dependencies
 
 CCompileC build/BlockKinectVR.build/Debug/BlockKinectVR.build/Objects-normal/i386/BlockKinectVRApp.o /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/../src/BlockKinectVRApp.cpp normal i386 c++ com.apple.compilers.llvmgcc42
 s344536122.314071
@@ -8214,10 +8214,10 @@ xcom.apple.compilers.llvmgcc42
 lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection35"Precompile BlockKinectVR_Prefix.pchb5164eddbd86b441^efc785ddbd86b441^---0#0#0#-19%DVTDocumentLocation2@122"file://localhost/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/BlockKinectVR_Prefix.pch0000000000000000^2289"ProcessPCH++ /var/folders/pw/pwc7edNZFwq-hWnUkDgWZk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BlockKinectVR_Prefix-gyixqrdbksvvvldtpsmwdlqcbpzs/BlockKinectVR_Prefix.pch.gch BlockKinectVR_Prefix.pch normal i386 c++ com.apple.compilers.llvmgcc42    cd /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode    setenv LANG en_US.US-ASCII    /Developer/usr/bin/llvm-gcc-4.2 -x c++-header -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/BlockKinectVR-generated-files.hmap -I/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/BlockKinectVR-own-target-headers.hmap -I/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/BlockKinectVR-all-target-headers.hmap -iquote /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/BlockKinectVR-project-headers.hmap -iquote../../../../../include -iquote../include -iquote../../../../../blocks/kinectvr/include -I/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/include -I../../../../../boost -I../../../../../blocks/kinectvr/include/OpenNI -I/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/DerivedSources/i386 -I/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/BlockKinectVR.build/Debug/BlockKinectVR.build/DerivedSources -F/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug -c /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/BlockKinectVR_Prefix.pch -o /var/folders/pw/pwc7edNZFwq-hWnUkDgWZk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BlockKinectVR_Prefix-gyixqrdbksvvvldtpsmwdlqcbpzs/BlockKinectVR_Prefix.pch.gch
 
 CTouch /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app
-s344536127.115876
-e344536127.120457
+s344544197.178298
+e344544197.198606
 r1
 xTouch
 x/Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app
-lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection117"Touch /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.appccb41d3f3489b441^45d61e3f3489b441^---0#0#0#--259"Touch build/Debug/BlockKinectVR.app    cd /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode    /usr/bin/touch -c /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection117"Touch /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.appd2c62dc55389b441^52d732c55389b441^---0#0#0#--259"Touch build/Debug/BlockKinectVR.app    cd /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode    /usr/bin/touch -c /Developer/Applications/cinder_master/blocks/kinectvr/samples/BlockKinectVR/xcode/build/Debug/BlockKinectVR.app
 
